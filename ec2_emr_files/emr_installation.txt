@@ -1,0 +1,41 @@
+Reference document for the installation of Hadoop and its 
+supporting frameworks inside the EC2 instances. 
+
+The below commands have worked on EC2 OpenSuse Amazon AMI
+The instance has been connected with the EBS that is persistent. So for the 
+tenure of anothe 10 days, this setup will continue. The instance has been tested 
+for the reboot and poweroff persistence before beginning the following process.
+
+I had initially forgotten about the challenges the different linux flavors can pose.
+Amazon provides a CentOS/ RHEL based Linux in its AMIs. Which is not as easy 
+as I thought. I am relooking at using ubuntu/ debian based AMI.
+
+sudo yum install java-1.8.0-openjdk-devel
+
+sudo yum install openssh-server openssh-clients
+ 
+sudo yum install -y python3 python3-pip 
+
+python3 -m venv python3-virtualenv
+
+sudo yum install -y telnet groff postgresql-client vim
+
+sudo rm -rf /var/cache/yum
+
+The above steps are required of CentOS/RHEL based flavors. Aborting the steps...
+
+After the Ubuntu 22.04LTS was instantiated, following challenges faced.
+
+1) There was no need to install the amazon-ssm-manager, which means no user data.
+However for the SSH to work, the iam role still needs to be assigned.
+2) The passwd change command used in the script, by using chpasswd is not working when doing manually,
+so I changed the passwd for the emrminion user manually, and it worked(I think)
+3) The basic environment setting etc has been completed. 
+Now starting the real installation. 
+
+https://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz
+
+https://downloads.apache.org/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz
+https://repo1.maven.org/maven2/com/google/guava/guava/27.0-jre/guava-27.0-jre.jar
+https://archive.apache.org/dist/spark/spark-2.4.8/spark-2.4.8-bin-hadoop2.7.tgz
+https://archive.apache.org/dist/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz
