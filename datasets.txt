@@ -1,0 +1,2 @@
+kaggle datasets download -d radek1/otto-full-optimized-memory-footprint
+kaggle datasets download -d yelp-dataset/yelp-dataset
