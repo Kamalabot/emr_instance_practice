@@ -138,8 +138,8 @@ alias dps="docker ps"
 alias dpa="docker ps -a"
 alias dce="docker exec"
 alias dcstop='docker stop'
-alias clust='docker start cluste_db_util'
-alias clup='docker stop cluste_db_util'
+alias pgstart='docker start cluste_db_util'
+alias pgstop='docker stop cluste_db_util'
 
 #####Beginning of Git Aliases######
 alias addup='git add -u'
@@ -167,3 +167,6 @@ alias sy="start-yarh.sh"
 alias stopd="stop-dfs.sh"
 alias stopy="stop-yarn.sh"
 
+####Jupyter#####
+alias actenv="source ~/dl_env/bin/activate"
+alias jupstart="~/dl_env/bin/jupyter lab --ip 0.0.0.0"
