@@ -1,0 +1,20 @@
+This file will contain the various actions that I am planning on AWS EC2 instance
+on daily basis. By end of the day, I want to update the status of the same.
+
+1) Run the pyspark script by using spark-submit, and try to get the result
+
+2) Enable the hive connectivity from the cluster to local DBeaver
+
+3) Explore the Hive query video, and practice the same
+
+4) Install the Pig / Flume / Superset/ Presto/ and other libraries and prepare
+
+5) Work on the multinode cluster installation by using the other 5gb of EBS, and 
+simple t2.micro 
+
+6) Use the boto3 / awswrangler and write the output of the table directly to the 
+glue catalog...
+
+7) Start exploriing DBT, and how it is being used in the ETL pipelines
+
+8) 
