@@ -23,7 +23,7 @@ if __name__ == '__main__':
 
     #Subcribe to topic
 
-    topic = 'higheverest'
+    topic = 'ordersAvro'
     consumer.subscribe([topic])
 
     try:
