@@ -88,10 +88,37 @@ hdfs dfs -mkdir -p /spark3-logs
 hdfs dfs -put -f /opt/spark3/jars/* /spark3-jars
 
 ln -s /usr/bin/python3 /usr/bin/python
-jupyter toree install --spark_home=/opt/spark2/ --user
 
 sudo chown -R ubuntu:ubuntu /home/ubuntu/ubuntu-material
 /home/ubuntu/.local/bin/jupyter lab --ip 0.0.0.0
 
+python -m venv byob_venv
 
-Also the Jupyter lab needs to be installed in virtual environment
+Jupyter lab needs to be installed in virtual environment
+
+integrating Spark3 with Jupyter lab kernel.json by creating folder in location below 
+/home/ubuntu/byob_venv/share/jupyter/kernels/pyspark3
+
+{
+      "argv": [
+        "python",
+        "-m",
+        "ipykernel_launcher",
+        "-f",
+        "{connection_file}"
+      ],
+      "display_name": "Pyspark 3",
+      "language": "python",
+      "env": {
+        "PYSPARK_PYTHON": "/usr/bin/python3",
+        "SPARK_HOME": "/opt/spark3/",
+        "SPARK_OPTS": "--master yarn --conf spark.ui.port=0",
+        "PYTHONPATH": "/opt/spark3/python/lib/py4j-0.10.9-src.zip:/opt/spark3/python/"
+      }
+}
+
+Then execute
+
+jupyter kernelspec \
+	install /home/ubuntu/byob_venv/share/jupyter/kernels/pyspark3 \
+	--user
