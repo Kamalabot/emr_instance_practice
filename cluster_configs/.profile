@@ -34,8 +34,6 @@ export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 export HIVE_HOME=/opt/hive
 export PATH=$PATH:${HIVE_HOME}/bin
 
-export SPARK2_HOME=/opt/spark2
-export PATH=$PATH:${SPARK2_HOME}/bin
 export SPARK3_HOME=/opt/spark3
 export PATH=$PATH:${SPARK3_HOME}/bin
-export PATH=$PATH:/home/itversity/.local/bin
+export PATH=$PATH:/home/ubuntu/.local/bin
