@@ -41,6 +41,14 @@ cp /opt/hadoop/share/hadoop/hdfs/lib/guava-27.0-jre.jar /opt/hive/lib/
 #Then next step can start
 #Configure the hive-site.xml file with correct details of the 
 #database
+#Ensure the following GRANT commands are executed from the Postgres user
+#ALTER DATABASE mydb OWNER TO admin;
+#GRANT ALL ON DATABASE mydb TO admin;
+#GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO hive
+#GRANT ALL PRIVILEGES ON SCHEMA public TO hive;
+#GRANT USAGE ON SCHEMA public TO hive;
+#GRANT CREATE ON SCHEMA public TO hive;
+#GRANT CREATE ON DATABASE metastore TO hive;
 
 schematool -dbType postgres -initSchema
 
