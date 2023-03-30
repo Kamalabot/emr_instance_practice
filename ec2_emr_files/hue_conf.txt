@@ -1,0 +1,92 @@
+This file contains the various configuration that needs to be done for 
+hue install
+
+This installation assumes hadoop to be pre-installed under hadoop user.
+
+Prerequisites:
+
+Hue depends on these following packages
+
+gcc
+g++
+libxml2-dev
+libxlst-dev
+libsasl2-dev
+libsasl2-modules-gssapi-mit
+libmysqlclient-dev
+python-dev
+python-setuptools
+libsqlite3-dev
+ant
+libkrb5-dev
+libtidy-0.99-0
+libldap2-dev
+libssl-dev
+libgmp3-dev
+Installing all the packages
+
+sudo apt-get update
+sudo apt install  gcc g++ libxml2-dev libxslt-dev libsasl2-dev libsasl2-modules-gssapi-mit libmysqlclient-dev python-dev-is-python3 python-setuptools libsqlite3-dev ant libkrb5-dev libtidy-dev libldap2-dev libssl-dev libgmp3-dev -y
+Installation and Configuration
+
+Performing installation as hadoop user.
+
+su - hadoop
+Download Hue from gethue.com (this link is an example obtained from Hue website)
+
+wget https://dl.dropboxusercontent.com/u/730827/hue/releases/3.9.0/hue-3.9.0.tgz
+
+Extract the downloaded tarball
+
+tar -xvf hue-3.9.0.tgz
+
+Execute install command
+
+ cd hue-3.9.0
+ PREFIX=/home/hadoop/ make install
+Once the above process is completed,
+
+Update ~/.bashrc file,
+
+ export HUE_HOME=/home/hadoop/hue
+ export PATH=$PATH:$HUE_HOME/build/env/bin
+source after adding the entries, source ~/.bashrc
+
+Configure Hue ( 3 files to edit)
+
+cd $HUE_HOME/desktop/conf
+
+hue.ini
+
+[desktop]
+ server_user=hadoop
+ server_group=hadoop
+ default_user=hadoop
+ default_hdfs_superuser=hadoop
+cd $HADOOP_CONF_DIR
+
+core-site.xml
+
+<property>
+    <name>hadoop.proxyuser.hadoop.hosts</name>
+    <value>*</value> 
+</property> 
+<property>
+    <name>hadoop.proxyuser.hadoop.groups</name>
+    <value>*</value> 
+</property>
+hdfs-site.xml
+
+<property>
+    <name>dfs.webhdfs.enabled</name>
+    <value>true</value> 
+</property>
+Start Hue (Start Hadoop daemons if not already started)
+
+nohup supervisor &
+
+Login to Hue Web Interface: http://localhost:8888
+
+username: hadoop
+
+password: user_choice

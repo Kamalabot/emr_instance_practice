@@ -41,5 +41,7 @@ https://repo1.maven.org/maven2/com/google/guava/guava/27.0-jre/guava-27.0-jre.ja
 https://archive.apache.org/dist/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz
 https://repo1.maven.org/maven2/org/postgresql/postgresql/42.2.19/postgresql-42.2.19.jar
 
+Trying to work out the hue install on Hadoop cluster
+https://cdn.gethue.com/downloads/hue-4.11.0.tgz
 
-
+Next Presto needs to be completed
