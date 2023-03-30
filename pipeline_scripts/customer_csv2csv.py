@@ -2,13 +2,13 @@ from pyspark.sql import SparkSession
 from pyspark.sql.types import StructType, StructField, IntegerType, StringType
 import sys
 
-if len(sys.argv) != 2:
-    print("seems the file path is not provided...")
-    filePath = input("Please provide the complete path of the file to Transform: ")
-else:
-    filePath = sys.argv[1]
-
 if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("seems the file path is not provided...")
+        filePath = input("Please provide the complete path of the file to Transform: ")
+    else:
+        filePath = sys.argv[1]
+
     print(f"The file path provided is {filePath}")
 
     spark = SparkSession.builder.appName("Customer Transformation").getOrCreate()
