@@ -10,6 +10,8 @@ else:
 
 print(f"The file path provided is {filePath}")
 
+spark = SparkSession.builder.appName("Customer Transformation").getOrCreate()
+
 use_schema = StructType([StructField('CustomerID', 
                                          IntegerType(), True), 
                              StructField('Gender', 
